@@ -8,5 +8,11 @@ namespace CoreLibrary
 {
     public class Game
     {
+        public void CreateGame()
+        {
+            Kamos p1 = new Kamos();
+            p1.crashSite();
+            
+        }
     }
 }
