@@ -13,7 +13,7 @@ namespace CoreLibrary
             Kamos p1 = new Kamos();
             p1.crashSite();
             Lumiere p2 = new Lumiere();
-            p2.crashSite();
+            p2.crashSite(); 
             Omia p3 = new Omia();
             p3.crashSite();
             Deluvia p4 = new Deluvia();
