@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreLibrary
 {
-    class Kamos : BuyOrSell
+    class Omia : BuyOrSell
     {
         int choice;
         public void crashSite()
@@ -34,7 +34,8 @@ namespace CoreLibrary
             playerHp = 15;
             alienHP = 15;
             position = "Approach village";
-            if(counter == 0){
+            if (counter == 0)
+            {
                 Console.WriteLine($"You approach the village but on the way you are attacked by an alien. You currently have a {weapon} with you.");
                 alienFight();
             }
@@ -135,30 +136,31 @@ namespace CoreLibrary
                         Console.WriteLine($"The alien attacks back and vomits venom at you dealing {alienDamage} Damage!\nYou now have {playerHp = playerHp - alienDamage} HP\n\nThe alien has {alienHP -= playerDamage} HP");
                     }
                 }
-                
+
 
             } while (alienHP > 0);
             {
                 alienBeat();
             }
-           
-        }
-            public void alienBeat() {
-                if (alienHP <= 0)
-                {
-                    alienDefeated = true;
-                    HasItem = true;
-                    aliendrop = "Golden Horn";
-                    weapon = "Annihilator";
-                    Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop} and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
-                    Console.WriteLine("After defeating the alien you approach the village.\n\nPress any key to continue...");
-                    Console.ReadLine();
-                    Village();
 
-                }
+        }
+        public void alienBeat()
+        {
+            if (alienHP <= 0)
+            {
+                alienDefeated = true;
+                HasItem = true;
+                aliendrop = "Golden Horn";
+                weapon = "Annihilator";
+                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop} and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
+                Console.WriteLine("After defeating the alien you approach the village.\n\nPress any key to continue...");
+                Console.ReadLine();
+                Village();
+
             }
-        
-            
+        }
+
+
         public void Trader()
         {
             position = "Trader";
@@ -196,7 +198,7 @@ namespace CoreLibrary
         }
         public void leavePlanet()
         {
-            if(HasSpaceShip == true)
+            if (HasSpaceShip == true)
             {
                 Console.WriteLine("You can now leave to the next planet.\nYou climb aboard your Space Ship and prepare for lift off.\n\nPress any key to take off!");
                 Console.ReadLine();
@@ -206,16 +208,17 @@ namespace CoreLibrary
                 Trader();
             }
         }
-            public void choiceAction()
+        public void choiceAction()
+        {
+            switch (position)
             {
-                switch (position)
-                {
-                    case "Crash site":
-                        switch (choice) {
-                            case 1:
-                                Console.WriteLine($"You see a village in the distance and decide to approach it,\nmaybe there is someone who can help there.");
-                                approachVillage();
-                                break;
+                case "Crash site":
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine($"You see a village in the distance and decide to approach it,\nmaybe there is someone who can help there.");
+                            approachVillage();
+                            break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to approach the village.\n\nPress any key to continue...");
                             Console.ReadLine();
@@ -223,33 +226,33 @@ namespace CoreLibrary
                             break;
 
                     }
-                        break;
-                    case "Approach village":
-                        switch (choice)
-                        {
-                            case 1:
-                                Console.WriteLine($"You pull out your {weapon}, ready to fight.");
-                                playerAttack();
-                                break;
-                            case 2:
-                                Console.WriteLine($"You run to the village and manage to escape, however you are hit by alien venom and lose 1 HP.\nYour HP is now {playerHp - 1}");
+                    break;
+                case "Approach village":
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine($"You pull out your {weapon}, ready to fight.");
+                            playerAttack();
+                            break;
+                        case 2:
+                            Console.WriteLine($"You run to the village and manage to escape, however you are hit by alien venom and lose 1 HP.\nYour HP is now {playerHp - 1}");
                             Village();
-                                break;
+                            break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to fight!\nEnter 2 to run!\n\nPress any key to continue...");
                             Console.ReadLine();
                             approachVillage();
                             break;
                     }
-                        break;
-                    case "Village":
-                        switch (choice)
-                        {
-                            case 1:
+                    break;
+                case "Village":
+                    switch (choice)
+                    {
+                        case 1:
                             Console.Clear();
                             Console.WriteLine("\nYou approach the village trader.");
                             Trader();
-                                break;
+                            break;
                         case 2:
                             Console.WriteLine($"You search the area and luck is on your side. You find 100 gold! You now have {gold = (gold + 100)} gold.\nPress any key to continue...");
                             Console.ReadLine();
@@ -262,7 +265,7 @@ namespace CoreLibrary
                             Village();
                             break;
                     }
-                        break;
+                    break;
                 case "Trader":
                     switch (choice)
                     {
@@ -287,10 +290,10 @@ namespace CoreLibrary
                     }
                     break;
 
-                
-                }
+
             }
         }
     }
+}
 
 

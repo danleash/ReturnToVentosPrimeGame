@@ -41,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class3.cs" />
+    <Compile Include="Deluvia.cs" />
+    <Compile Include="Omia.cs" />
+    <Compile Include="Lumiere.cs" />
     <Compile Include="BuyOrSell.cs" />
     <Compile Include="Kamos.cs" />
     <Compile Include="PlayerStats.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventos Prime.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

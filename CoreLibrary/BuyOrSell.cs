@@ -72,22 +72,33 @@ namespace CoreLibrary
             Console.Clear();
             counter++;
             Console.WriteLine($"What do you wish to sell?\n\nThe trader will only buy your {aliendrop} that you have aquired for 500 gold.\n\nPress 1 to sell your {aliendrop}.");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
+            try
             {
-                case 1:
-                    if (HasItem == true)
-                    {
-                        gold += 500;
-                        HasItem = false;
-                    }
-                    else
-                    {
-                        Console.WriteLine("You already sold all of your items. Press any key to continue...");
-                        Console.ReadLine();
-                    }
-                    break;
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        if (HasItem == true)
+                        {
+                            gold += 500;
+                            HasItem = false;
+                            Console.WriteLine($"You sold your {aliendrop}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You already sold all of your items. Press any key to continue...");
+                            Console.ReadLine();
+                        }
+                        break;
+                }
             }
+            catch (FormatException fEx)
+            {
+                Console.WriteLine($"{ fEx.Message} try again... Press any key to continue...");
+                Console.ReadLine();
+                sell();
+            }
+            
             }
 
         
