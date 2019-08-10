@@ -41,9 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class2.cs" />
     <Compile Include="Class3.cs" />
-    <Compile Include="Class4.cs" />
+    <Compile Include="BuyOrSell.cs" />
     <Compile Include="Kamos.cs" />
     <Compile Include="PlayerStats.cs" />
     <Compile Include="Game.cs" />
