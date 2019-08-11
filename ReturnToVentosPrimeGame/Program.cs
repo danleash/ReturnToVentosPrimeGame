@@ -12,6 +12,9 @@ namespace ReturnToVentosPrimeGame
         {
             Game newGame = new Game();
             newGame.CreateGame();
+
+            
+
             Console.ReadLine();
         }
     }

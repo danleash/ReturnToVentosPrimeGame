@@ -65,6 +65,12 @@ namespace CoreLibrary
                         Console.ReadLine();
                     }
                     break;
+                   
+                   
+                  
+                    
+                  
+                 
             }
             }
             public void sell()
@@ -92,6 +98,15 @@ namespace CoreLibrary
                         break;
                 }
             }
+
+           
+
+
+
+
+
+
+
             catch (FormatException fEx)
             {
                 Console.WriteLine($"{ fEx.Message} try again... Press any key to continue...");
@@ -100,6 +115,9 @@ namespace CoreLibrary
             }
             
             }
+
+
+ 
 
         
     }
