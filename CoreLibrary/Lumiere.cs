@@ -8,17 +8,18 @@ namespace CoreLibrary
 {
     class Lumiere : BuyOrSell
     {
-        int choice;
+        int choice1;
         public void crashSiteLumiere()
         {
             gold = 100;
             counter = 0;
             weapon = "Annihilator";
             position = "Lumiere Fields";
+            Console.Clear();
             Console.WriteLine("You have arrived on Lumiere. You need to get to the next planet.\nWhat will you do next?\nType the number 1 to approach the palace:");
             try
             {
-                choice = Convert.ToInt32(Console.ReadLine());
+                choice1 = Convert.ToInt32(Console.ReadLine());
                 choiceAction1();
             }
             catch (FormatException fEx)
@@ -33,7 +34,7 @@ namespace CoreLibrary
             Console.Clear();
             playerHp = 20;
             alienHP = 20;
-            position = "Approach Palace";
+            position = "Approach palace";
             if (counter == 0)
             {
                 Console.WriteLine($"You approach the Palace but on the way you are ambushed. You currently have a {weapon} with you.");
@@ -51,7 +52,7 @@ namespace CoreLibrary
                 "are in danger... What will you do?\n\nType 1 to fight.\n\nType 2 to run.");
             try
             {
-                choice = Convert.ToInt32(Console.ReadLine());
+                choice1 = Convert.ToInt32(Console.ReadLine());
                 choiceAction1();
             }
             catch (FormatException fEx)
@@ -74,7 +75,7 @@ namespace CoreLibrary
                     Console.WriteLine("What will you do next?\nEnter 1 to trade.\nEnter 2 to search the area.");
                     try
                     {
-                        choice = Convert.ToInt32(Console.ReadLine());
+                        choice1 = Convert.ToInt32(Console.ReadLine());
                         choiceAction1();
                     }
                     catch (FormatException fEx)
@@ -90,7 +91,7 @@ namespace CoreLibrary
                     Console.WriteLine("You arrive at the Palace. The gaurd lets you in because you killed the alien. \nWhen you walk into the Palace, you see a Trader store. Maybe you can trade with them in order to get a new spaceship.\n What will you do?\nEnter 1 to trade.\nEnter 2 to search the area.");
                     try
                     {
-                        choice = Convert.ToInt32(Console.ReadLine());
+                        choice1 = Convert.ToInt32(Console.ReadLine());
                         choiceAction1();
                     }
                     catch (FormatException fEx)
@@ -118,12 +119,12 @@ namespace CoreLibrary
             int alienDamage = 0;
             do
             {
-                if (weapon == ("CellBlaster"))
+                if (weapon == "Annihilator")
                 {
                     Random ranum = new Random();
-                    playerDamage = ranum.Next(1, 7);
+                    playerDamage = ranum.Next(3, 9);
                     Random aliendam = new Random();
-                    alienDamage = aliendam.Next(1, 3);
+                    alienDamage = aliendam.Next(2, 5);
                     if (alienHP < 0)
                     {
                         alienHP = 0;
@@ -151,8 +152,8 @@ namespace CoreLibrary
                 alienDefeated = true;
                 HasItem = true;
                 aliendrop = "Gem of Lumiere";
-                weapon = "Annihilator";
-                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop} and 200 gold. You now have {gold = (gold + 200)} gold. \n \n");
+                weapon = "Particle Seperator";
+                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop}, a {weapon} weapon, and 200 gold. You now have {gold = (gold + 200)} gold. \n \n");
                 Console.WriteLine("After defeating the alien you approach the Palace.\n\nPress any key to continue...");
                 Console.ReadLine();
                 Palace();
@@ -170,7 +171,7 @@ namespace CoreLibrary
                 Console.WriteLine("Good day to you sir! Thank you for dealing with that alien. It was stealing the Palace Gems!\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.");
                 try
                 {
-                    choice = Convert.ToInt32(Console.ReadLine());
+                    choice1 = Convert.ToInt32(Console.ReadLine());
                     choiceAction1();
                 }
                 catch (FormatException fEx)
@@ -185,7 +186,7 @@ namespace CoreLibrary
                 Console.WriteLine("\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.");
                 try
                 {
-                    choice = Convert.ToInt32(Console.ReadLine());
+                    choice1 = Convert.ToInt32(Console.ReadLine());
                     choiceAction1();
                 }
                 catch (FormatException fEx)
@@ -212,8 +213,8 @@ namespace CoreLibrary
         {
             switch (position)
             {
-                case "Crash Site : Lumiere":
-                    switch (choice)
+                case "Lumiere Fields":
+                    switch (choice1)
                     {
                         case 1:
                             Console.WriteLine($"You see a palace in the distance and decide to approach it,\nmaybe there is someone who can help there.");
@@ -228,7 +229,7 @@ namespace CoreLibrary
                     }
                     break;
                 case "Approach palace":
-                    switch (choice)
+                    switch (choice1)
                     {
                         case 1:
                             Console.WriteLine($"You pull out your {weapon}, ready to fight.");
@@ -246,7 +247,7 @@ namespace CoreLibrary
                     }
                     break;
                 case "Palace":
-                    switch (choice)
+                    switch (choice1)
                     {
                         case 1:
                             Console.Clear();
@@ -267,7 +268,7 @@ namespace CoreLibrary
                     }
                     break;
                 case "Trader":
-                    switch (choice)
+                    switch (choice1)
                     {
                         case 1:
                             SpaceShip = 400;

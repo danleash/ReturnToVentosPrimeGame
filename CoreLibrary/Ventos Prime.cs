@@ -13,9 +13,10 @@ namespace CoreLibrary
         {
             gold = 1000000;
             counter = 0;
-            weapon = "VentosBlast";
+            weapon = "The Blade of Deluvia";
             position = "Ventos Prime HQ";
-            Console.WriteLine("You have finally reached Ventos Prime.\nWhat will you do next?\nType the number 1 to approach VP HQ:");
+            Console.Clear();
+            Console.WriteLine($"You have finally reached Ventos Prime, your home planet.\n\nYou are greeted as a hero and given a reward for your bravery.\n\nYou now have {gold} gold!\nWhat will you do next?\nType the number 1 to approach VP HQ:");
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -32,13 +33,13 @@ namespace CoreLibrary
       
 
 
-        public void VPHQ()
+        public void Trader()
         {
-            position = "Trader";
+            position = "VPHQ";
             if (counter < 4)
             {
                 counter = 4;
-                Console.WriteLine("Welcom back Agent.\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.");
+                Console.WriteLine("Welcom back Wessex. You are a true hero.\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to finally return home.");
                 try
                 {
                     choice = Convert.ToInt32(Console.ReadLine());
@@ -48,12 +49,12 @@ namespace CoreLibrary
                 {
                     Console.WriteLine($"{ fEx.Message} try again... Press any key to continue...");
                     Console.ReadLine();
-                    VPHQ();
+                    Trader();
                 }
             }
             else if (counter >= 4)
             {
-                Console.WriteLine("\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.");
+                Console.WriteLine("What can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to finally return home.");
                 try
                 {
                     choice = Convert.ToInt32(Console.ReadLine());
@@ -63,7 +64,7 @@ namespace CoreLibrary
                 {
                     Console.WriteLine($"{ fEx.Message} try again... Press any key to continue...");
                     Console.ReadLine();
-                    VPHQ();
+                    Trader();
                 }
             }
         }
@@ -71,24 +72,24 @@ namespace CoreLibrary
         {
             if (HasSpaceShip == true)
             {
-                Console.WriteLine("You can now leave to the next planet.\nYou climb aboard your Space Ship and prepare for lift off.\n\nPress any key to take off!");
+                Console.WriteLine("After years of inter-gallactic travel, you decide that maybe home isn't home for you after all.\n\nSo you board your ship, now being extremely wealthy,\nand take off hoping for a new adventure!\n\nTHE END!");
                 Console.ReadLine();
             }
             else
             {
-                VPHQ();
+                Trader();
             }
         }
         public void choiceAction()
         {
             switch (position)
             {
-                case "VPHQ1":
+                case "Ventos Prime HQ":
                     switch (choice)
                     {
                         case 1:
-                            Console.WriteLine($"You see VPHQ in the distance and decide to approach it");
-                            VPHQ();
+                            Console.WriteLine($"You see VPHQ in the distance and decide to approach it.\nYou are greeted by your favorite merchant.");
+                           Trader();
                             break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to approach VPHQ.\n\nPress any key to continue...");
@@ -100,41 +101,23 @@ namespace CoreLibrary
                     break;
                 
                     
-                case "VPHQ2":
+                case "VPHQ":
                     switch (choice)
                     {
                         case 1:
-                            Console.Clear();
-                            Console.WriteLine("\nYou approach the Ventos Prime HQ.");
-                            VPHQ();
+                            SpaceShip = 400;
+                            HealingPotion = 50;
+                            Armor = 100;
+                            buy();
+                            leavePlanet();
                             break;
                         case 2:
-                            Console.WriteLine($"You search the area and luck is on your side. You find 100 gold! You now have {gold = (gold + 100000)} gold.\nPress any key to continue...");
-                            Console.ReadLine();
-                            counter = 3;
-                            VPHQ();
-                            break;
-                        default:
-                            Console.WriteLine("Invalid entry. Enter 1 to talk to Trader.\nEnter 2 to search the area. \n\nPress any key to continue...");
-                            Console.ReadLine();
-                            VPHQ();
-                            break;
-                    }
-                    break;
-                case "Trader":
-                    switch (choice)
-                    {
-                        
-                        case 1:
-                            sell();
-                            HasItem = false;
-                            Console.ReadLine();
-                            VPHQ();
+                            Console.WriteLine("You return home this time as a wealthy, brave man!\n\nYou retire the rest of your days in harmony.");
                             break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to buy from Trader.\nEnter 2 to sell to Trader.\n\nPress any key to continue...");
                             Console.ReadLine();
-                            VPHQ();
+                            Trader();
                             break;
                     }
                     break;

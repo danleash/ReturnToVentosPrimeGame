@@ -13,9 +13,10 @@ namespace CoreLibrary
         {
             gold = 100;
             counter = 0;
-            weapon = "Particle Gun";
+            weapon = "Particle Seperator";
             position = "Omia Lake";
-            Console.WriteLine("You have crash-landed on an alien planet. Your ship is badly damaged, and you are lost.\nWhat will you do next?\nType the number 1 to approach alien village:");
+            Console.Clear();
+            Console.WriteLine("You have landed on the planet Omia.\nYour ship is out of fuel and hit an asteroid belt upon entering the atmosphere, your ship is toast...\n\nYou see an alien castle not too far from you. What will you do next?\nType the number 1 to approach alien castle:");
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -31,8 +32,8 @@ namespace CoreLibrary
         public void approachCastle()
         {
             Console.Clear();
-            playerHp = 15;
-            alienHP = 15;
+            playerHp = 28;
+            alienHP = 20;
             position = "Approach Castle";
             if (counter == 0)
             {
@@ -118,12 +119,12 @@ namespace CoreLibrary
             int alienDamage = 0;
             do
             {
-                if (weapon == ("CellBlaster"))
+                if (weapon == "Particle Seperator")
                 {
                     Random ranum = new Random();
-                    playerDamage = ranum.Next(1, 7);
+                    playerDamage = ranum.Next(6, 10);
                     Random aliendam = new Random();
-                    alienDamage = aliendam.Next(1, 3);
+                    alienDamage = aliendam.Next(5, 7);
                     if (alienHP < 0)
                     {
                         alienHP = 0;
@@ -150,9 +151,9 @@ namespace CoreLibrary
             {
                 alienDefeated = true;
                 HasItem = true;
-                aliendrop = "Golden Horn";
-                weapon = "Annihilator";
-                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop} and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
+                aliendrop = "Sphere of Light";
+                weapon = "Lightning Blaster";
+                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop}, a {weapon} weapon, and 500 gold. You now have {gold = (gold + 500)} gold. \n \n");
                 Console.WriteLine("After defeating the alien you approach the village.\n\nPress any key to continue...");
                 Console.ReadLine();
                 Castle();

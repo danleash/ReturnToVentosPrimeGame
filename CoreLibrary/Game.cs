@@ -20,8 +20,9 @@ namespace CoreLibrary
             p4.crashSiteDeluvia();
             Ventos_Prime p5 = new Ventos_Prime();
             p5.crashSiteVentosPrime();
+            Console.Clear();
             Console.WriteLine("Thanks for playing hope you liked it!\n\nCreated by Dan Leash and Alex Madrigal");
-
+            Console.ReadLine();
 
         }
     }

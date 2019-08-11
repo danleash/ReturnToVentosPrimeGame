@@ -13,9 +13,10 @@ namespace CoreLibrary
         {
             gold = 100;
             counter = 0;
-            weapon = "Plasma Blade";
+            weapon = "Lightning Blaster";
             position = "Ruins";
-            Console.WriteLine("You have reached the quiet ruin of Deluvia.\nWhat will you do next?\nType the number 1 to approach alien village:");
+            Console.Clear();
+            Console.WriteLine("You have reached the quiet ruin of Deluvia.\nWhat will you do next?\nType the number 1 to approach alien ruins:");
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -31,8 +32,8 @@ namespace CoreLibrary
         public void approachCave()
         {
             Console.Clear();
-            playerHp = 15;
-            alienHP = 15;
+            playerHp = 35;
+            alienHP = 17;
             position = "Approach Cave";
             if (counter == 0)
             {
@@ -118,12 +119,12 @@ namespace CoreLibrary
             int alienDamage = 0;
             do
             {
-                if (weapon == ("Plasma Blade"))
+                if (weapon == ("Lightning Blaster"))
                 {
                     Random ranum = new Random();
-                    playerDamage = ranum.Next(1, 7);
+                    playerDamage = ranum.Next(15, 20);
                     Random aliendam = new Random();
-                    alienDamage = aliendam.Next(1, 3);
+                    alienDamage = aliendam.Next(10, 12);
                     if (alienHP < 0)
                     {
                         alienHP = 0;
@@ -152,7 +153,7 @@ namespace CoreLibrary
                 HasItem = true;
                 aliendrop = "StoneHeart";
                 weapon = "The Blade of Deluvia";
-                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop} and 500 gold. You now have {gold = (gold + 500)} gold. \n \n");
+                Console.WriteLine($"You have defeated the alien.\n\nThe alien dropped a {aliendrop}, {weapon} (an extremely rare weapon), and 500 gold. You now have {gold = (gold + 500)} gold. \n \n");
                 Console.WriteLine("After defeating the alien you approach the Cave.\n\nPress any key to continue...");
                 Console.ReadLine();
                 Cave();
@@ -212,7 +213,7 @@ namespace CoreLibrary
         {
             switch (position)
             {
-                case "Cave":
+                case "Ruins":
                     switch (choice)
                     {
                         case 1:
@@ -245,7 +246,7 @@ namespace CoreLibrary
                             break;
                     }
                     break;
-                case "Cave2":
+                case "Cave":
                     switch (choice)
                     {
                         case 1:
