@@ -9,50 +9,50 @@ namespace CoreLibrary
     class Lumiere : BuyOrSell
     {
         int choice;
-        public void crashSite()
+        public void crashSiteLumiere()
         {
             gold = 100;
             counter = 0;
-            weapon = "CellBlaster";
-            position = "Crash site";
-            Console.WriteLine("You have crash-landed on an alien planet. Your ship is badly damaged, and you are lost.\nWhat will you do next?\nType the number 1 to approach alien village:");
+            weapon = "Annihilator";
+            position = "Lumiere Fields";
+            Console.WriteLine("You have arrived on Lumiere. You need to get to the next planet.\nWhat will you do next?\nType the number 1 to approach the palace:");
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());
-                choiceAction();
+                choiceAction1();
             }
             catch (FormatException fEx)
             {
                 Console.WriteLine($"{ fEx.Message} try again... Press any key to continue...");
                 Console.ReadLine();
-                crashSite();
+                crashSiteLumiere();
             }
         }
-        public void approachVillage()
+        public void approachPalace()
         {
             Console.Clear();
-            playerHp = 15;
-            alienHP = 15;
-            position = "Approach village";
+            playerHp = 20;
+            alienHP = 20;
+            position = "Approach Palace";
             if (counter == 0)
             {
-                Console.WriteLine($"You approach the village but on the way you are attacked by an alien. You currently have a {weapon} with you.");
+                Console.WriteLine($"You approach the Palace but on the way you are ambushed. You currently have a {weapon} with you.");
                 alienFight();
             }
             else
             {
-                Console.WriteLine($"You leave the village entrance. You head north to where you last saw the alien.\n\nYou must fight the alien and win to gain their trust.\n\n");
+                Console.WriteLine($"You stray from the Palace Road. You head West to where you last saw the alien.\n\nYou must fight the alien and win to gain their trust.\n\n");
                 alienFight();
             }
         }
         public void alienFight()
         {
-            Console.WriteLine("The alien leaps down from the rocky terrain and shreiks into the air.\n\nYou " +
+            Console.WriteLine("As you walk you bump into what seems like nothing. An alien slowly leaves it's invisible form.\n\nYou " +
                 "are in danger... What will you do?\n\nType 1 to fight.\n\nType 2 to run.");
             try
             {
                 choice = Convert.ToInt32(Console.ReadLine());
-                choiceAction();
+                choiceAction1();
             }
             catch (FormatException fEx)
             {
@@ -61,53 +61,53 @@ namespace CoreLibrary
                 alienFight();
             }
         }
-        public void Village()
+        public void Palace()
         {
             Console.Clear();
 
-            position = "Village";
+            position = "Palace";
             if (alienDefeated == true)
             {
                 if (counter == 3)
                 {
-                    position = "Village";
+                    position = "Palace";
                     Console.WriteLine("What will you do next?\nEnter 1 to trade.\nEnter 2 to search the area.");
                     try
                     {
                         choice = Convert.ToInt32(Console.ReadLine());
-                        choiceAction();
+                        choiceAction1();
                     }
                     catch (FormatException fEx)
                     {
                         Console.WriteLine($"{ fEx.Message} try again... Press any key to continue...");
                         Console.ReadLine();
-                        Village();
+                        Palace();
                     }
                 }
                 else
                 {
-                    position = "Village";
-                    Console.WriteLine("You arrive at the village. The gaurd lets you in because you killed the alien. \nWhen you walk into the village, you see a general store. Maybe you can trade with them in order to get a new spaceship.\n What will you do?\nEnter 1 to trade.\nEnter 2 to search the area.");
+                    position = "Palace";
+                    Console.WriteLine("You arrive at the Palace. The gaurd lets you in because you killed the alien. \nWhen you walk into the Palace, you see a Trader store. Maybe you can trade with them in order to get a new spaceship.\n What will you do?\nEnter 1 to trade.\nEnter 2 to search the area.");
                     try
                     {
                         choice = Convert.ToInt32(Console.ReadLine());
-                        choiceAction();
+                        choiceAction1();
                     }
                     catch (FormatException fEx)
                     {
                         Console.WriteLine($"{ fEx.Message} try again... Press any key to continue...");
                         Console.ReadLine();
-                        Village();
+                        Palace();
                     }
                 }
             }
             else
             {
                 counter = 1;
-                Console.WriteLine("A gaurd is standing at the entrance to the village.\nHe stops you before you enter and says:\nWe cannot let you in there are dangerous aliens on this planet, and I do not know you.\nIf you kill the alien that is north from here it will prove you are trustworthy.");
+                Console.WriteLine("A gaurd is standing at the entrance to the Palace.\nHe stops you before you enter and says:\nI cannont let you in . This planet is infested with aliens and you look to weak..\nIf you kill the alien that is west from here it will prove you are worthy.");
                 Console.WriteLine("Press enter to go back");
                 Console.ReadLine();
-                approachVillage();
+                approachPalace();
             }
         }
         public void playerAttack()
@@ -128,12 +128,12 @@ namespace CoreLibrary
                     {
                         alienHP = 0;
                         Console.WriteLine($"You attack the Alien dealing {playerDamage} damage! with your {weapon}");
-                        Console.WriteLine($"The alien attacks back and vomits venom at you dealing {alienDamage} Damage!\nYou now have {playerHp = playerHp - alienDamage} HP\n\nThe alien has {alienHP} HP");
+                        Console.WriteLine($"The alien attacks back and slashes at you dealing {alienDamage} Damage!\nYou now have {playerHp = playerHp - alienDamage} HP\n\nThe alien has {alienHP} HP");
                     }
                     else
                     {
                         Console.WriteLine($"You attack the Alien dealing {playerDamage} damage! with your {weapon}");
-                        Console.WriteLine($"The alien attacks back and vomits venom at you dealing {alienDamage} Damage!\nYou now have {playerHp = playerHp - alienDamage} HP\n\nThe alien has {alienHP -= playerDamage} HP");
+                        Console.WriteLine($"The alien attacks back and slashes at you dealing {alienDamage} Damage!\nYou now have {playerHp = playerHp - alienDamage} HP\n\nThe alien has {alienHP -= playerDamage} HP");
                     }
                 }
 
@@ -150,12 +150,12 @@ namespace CoreLibrary
             {
                 alienDefeated = true;
                 HasItem = true;
-                aliendrop = "Golden Horn";
+                aliendrop = "Gem of Lumiere";
                 weapon = "Annihilator";
-                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop} and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
-                Console.WriteLine("After defeating the alien you approach the village.\n\nPress any key to continue...");
+                Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop} and 200 gold. You now have {gold = (gold + 200)} gold. \n \n");
+                Console.WriteLine("After defeating the alien you approach the Palace.\n\nPress any key to continue...");
                 Console.ReadLine();
-                Village();
+                Palace();
 
             }
         }
@@ -167,11 +167,11 @@ namespace CoreLibrary
             if (counter < 4)
             {
                 counter = 4;
-                Console.WriteLine("Good day to you sir! Thank you for dealing with that alien out side of town! He ate my wife and kids a few weeks ago.\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.");
+                Console.WriteLine("Good day to you sir! Thank you for dealing with that alien. It was stealing the Palace Gems!\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.");
                 try
                 {
                     choice = Convert.ToInt32(Console.ReadLine());
-                    choiceAction();
+                    choiceAction1();
                 }
                 catch (FormatException fEx)
                 {
@@ -186,7 +186,7 @@ namespace CoreLibrary
                 try
                 {
                     choice = Convert.ToInt32(Console.ReadLine());
-                    choiceAction();
+                    choiceAction1();
                 }
                 catch (FormatException fEx)
                 {
@@ -208,26 +208,26 @@ namespace CoreLibrary
                 Trader();
             }
         }
-        public void choiceAction()
+        public void choiceAction1()
         {
             switch (position)
             {
-                case "Crash site":
+                case "Crash Site : Lumiere":
                     switch (choice)
                     {
                         case 1:
-                            Console.WriteLine($"You see a village in the distance and decide to approach it,\nmaybe there is someone who can help there.");
-                            approachVillage();
+                            Console.WriteLine($"You see a palace in the distance and decide to approach it,\nmaybe there is someone who can help there.");
+                            approachPalace();
                             break;
                         default:
-                            Console.WriteLine("Invalid entry. Enter 1 to approach the village.\n\nPress any key to continue...");
+                            Console.WriteLine("Invalid entry. Enter 1 to approach the palace.\n\nPress any key to continue...");
                             Console.ReadLine();
-                            crashSite();
+                            crashSiteLumiere();
                             break;
 
                     }
                     break;
-                case "Approach village":
+                case "Approach palace":
                     switch (choice)
                     {
                         case 1:
@@ -235,34 +235,34 @@ namespace CoreLibrary
                             playerAttack();
                             break;
                         case 2:
-                            Console.WriteLine($"You run to the village and manage to escape, however you are hit by alien venom and lose 1 HP.\nYour HP is now {playerHp - 1}");
-                            Village();
+                            Console.WriteLine($"You run to the palace and manage to escape, however you are hit by alien venom and lose 1 HP.\nYour HP is now {playerHp - 1}");
+                            Palace();
                             break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to fight!\nEnter 2 to run!\n\nPress any key to continue...");
                             Console.ReadLine();
-                            approachVillage();
+                            approachPalace();
                             break;
                     }
                     break;
-                case "Village":
+                case "Palace":
                     switch (choice)
                     {
                         case 1:
                             Console.Clear();
-                            Console.WriteLine("\nYou approach the village trader.");
+                            Console.WriteLine("\nYou approach the palace trader.");
                             Trader();
                             break;
                         case 2:
                             Console.WriteLine($"You search the area and luck is on your side. You find 100 gold! You now have {gold = (gold + 100)} gold.\nPress any key to continue...");
                             Console.ReadLine();
                             counter = 3;
-                            Village();
+                            Palace();
                             break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to talk to Trader.\nEnter 2 to search the area. \n\nPress any key to continue...");
                             Console.ReadLine();
-                            Village();
+                            Palace();
                             break;
                     }
                     break;
@@ -281,6 +281,9 @@ namespace CoreLibrary
                             HasItem = false;
                             Console.ReadLine();
                             Trader();
+                            break;
+                        case 3: 
+                            Palace();
                             break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to buy from Trader.\nEnter 2 to sell to Trader.\n\nPress any key to continue...");

@@ -150,6 +150,7 @@ namespace CoreLibrary
                     HasItem = true;
                     aliendrop = "Golden Horn";
                     weapon = "Annihilator";
+                    Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop}, a {weapon} and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
                     Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop}, {weapon} weapon, and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
                     Console.WriteLine("After defeating the alien you approach the village.\n\nPress any key to continue...");
                     Console.ReadLine();
@@ -180,7 +181,7 @@ namespace CoreLibrary
             }
             else if (counter >= 4)
             {
-                Console.WriteLine("\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.");
+                Console.WriteLine("\nWhat can I do you for?\nEnter 1 to view my inventory if you want to buy items.\nEnter 2 to sell an item.\nEnter 3 to exit.");
                 try
                 {
                     choice = Convert.ToInt32(Console.ReadLine());
@@ -278,6 +279,9 @@ namespace CoreLibrary
                             HasItem = false;
                             Console.ReadLine();
                             Trader();
+                            break;
+                        case 3:
+                            Village();
                             break;
                         default:
                             Console.WriteLine("Invalid entry. Enter 1 to buy from Trader.\nEnter 2 to sell to Trader.\n\nPress any key to continue...");
