@@ -151,6 +151,7 @@ namespace CoreLibrary
                     aliendrop = "Golden Horn";
                     weapon = "Annihilator";
                     Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop}, a {weapon} and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
+                    Console.WriteLine($"You have defeated the alien.\nThe alien dropped a {aliendrop}, {weapon} weapon, and 100 gold. You now have {gold = (gold + 100)} gold. \n \n");
                     Console.WriteLine("After defeating the alien you approach the village.\n\nPress any key to continue...");
                     Console.ReadLine();
                     Village();
